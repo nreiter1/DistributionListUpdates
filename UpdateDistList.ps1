@@ -1,4 +1,6 @@
-﻿#Sets default variables to 1
+#Updated 1/15/2024
+ 
+#Sets default variables to 1
 
 $DistributionGroupList = 1
 # $Dis Not sure if this variable is still needed.
