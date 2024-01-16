@@ -74,7 +74,6 @@ while($DistributionGroupList -eq 1)
         }
     }
 
-    $Host.ui.rawui.foregroundcolor = "White"
     Write-Host "Distribution Group Name: $DistributionGroup"
     Get-DistributionGroupMember -Identity $DistributionGroup | Select -ExpandProperty primarysmtpaddress | Write-Host #Generates updated distribution list
     $Finished = Read-Host "Do we need to make any additional changes? (Y: Yes, N: No): "
