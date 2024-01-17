@@ -53,7 +53,7 @@ while($DistributionGroupList -eq 1)
      
     #Remove Users
     
-    $DistributionGroupMemRemove = Read-Host -Prompt "Do we need to remove a user/contact from the list? (Y: Yes, N: No): "
+    $DistributionGroupMemRemove = Read-Host -Prompt "Do we need to remove a user/contact from the list? (Y: Yes, N: No)" #Removed " :"from end given script shows ": :" when running
     if($DistributionGroupMemRemove -eq "Y")
     {
         $Host.ui.rawui.foregroundcolor = "Yellow"
