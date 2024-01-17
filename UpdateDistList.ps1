@@ -43,7 +43,7 @@ while($DistributionGroupList -eq 1)
                 Add-DistributionGroupMember -Identity $DistributionGroup -Member $DistributionGroupMember
                 Read-Host -Prompt "If there are no errors, user added successfully! Press any key to continue....."
             }
-            $AddAdditionalUsers = Read-Host -Prompt "Do we need to add any additional users/contacts to this distribution group? (Y: Yes, N: No): "
+            $AddAdditionalUsers = Read-Host -Prompt "Do we need to add any additional users/contacts to this distribution group? (Y: Yes, N: No)" #Removed " :"from end given script shows ": :" when running
             if($AddAdditionalUsers -eq "N")
             {$DistributionGroupUpdate = 0}
         }
@@ -68,7 +68,7 @@ while($DistributionGroupList -eq 1)
                 Remove-DistributionGroupMember -Identity $DistributionGroup -Member $DistributionGroupMember
                 Read-Host -Prompt "If there are no errors, user removed successfully! Press any key to continue....."
             }
-            $RemoveAdditionalUsers = Read-Host -Prompt "Do we need to remove any additional users/contacts to this distribution group? (Y: Yes, N: No): "
+            $RemoveAdditionalUsers = Read-Host -Prompt "Do we need to remove any additional users/contacts to this distribution group? (Y: Yes, N: No)" #Removed " :"from end given script shows ": :" when running
             if($RemoveAdditionalUsers -eq "N")
             {$DistributionGroupUpdate = 0}
         }
@@ -76,7 +76,7 @@ while($DistributionGroupList -eq 1)
 
     Write-Host "Distribution Group Name: $DistributionGroup"
     Get-DistributionGroupMember -Identity $DistributionGroup | Select -ExpandProperty primarysmtpaddress | Write-Host #Generates updated distribution list
-    $Finished = Read-Host "Do we need to make any additional changes? (Y: Yes, N: No): "
+    $Finished = Read-Host "Do we need to make any additional changes? (Y: Yes, N: No)" #Removed " :"from end given script shows ": :" when running
     if($Finished -eq "N")
     {$DistributionGroupList = 0}
 }
