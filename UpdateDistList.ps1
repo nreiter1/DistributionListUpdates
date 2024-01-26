@@ -100,7 +100,9 @@ while($DistributionGroupList -eq 1)
                 
                 try
                 {
-                    $mct=Get-MailContact $DistributionGroupMember -ErrorAction -Stop
+                    Write-Host $DistributionGroupMember
+                    $mct=Get-MailContact -Identity $DistributionGroupMember -ErrorAction -Stop
+                    #Write-Host "Test Message"
                     $dn=$mct.distinguishedname
                     $Filter="Members -like ""$dn"""
                     $MailContactDLCheck = $null
