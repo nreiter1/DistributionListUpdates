@@ -131,7 +131,7 @@ while($DistributionGroupList -eq 1)
     #Find object in default OU and report to user
 
     $FindDistrubutionGroupDefaultOU = $null
-    $FindDistrubutionGroupDefaultOU = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "tps.local/Users" -ErrorAction Ignore
+    $FindDistrubutionGroupDefaultOU = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "DOMAIN/Users" -ErrorAction Ignore
     if($FindDistrubutionGroupDefaultOU -ne $null)
     {
         Write-Host -ForegroundColor Yellow "***OU is in DEFAULT OU! Please move to sync OU IF no @tenaska.com emails are present!***"
@@ -140,8 +140,8 @@ while($DistributionGroupList -eq 1)
     #Find object in non-sync OU and report to user
 
     $FindDistrubutionGroupExchOUNonSync = $null
-    $FindDistributionGroupExchOUNonSync = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "domain/OU" -ErrorAction Ignore
-    $FindDistributionGroupExchOUNonSync = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "domain/OU" -ErrorAction Ignore
+    $FindDistributionGroupExchOUNonSync = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "DOMAIN/OU" -ErrorAction Ignore
+    $FindDistributionGroupExchOUNonSync = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "DOMAIN/OU" -ErrorAction Ignore
     if($FindDistributionGroupExchOUNonSync -ne $null)
     {
         Write-Host -ForegroundColor Yellow "***OU is in Exchange NON-SYNC OU! You will need to activate Exchange PIM and make your changes in Exchange Admin Center as well!***"
