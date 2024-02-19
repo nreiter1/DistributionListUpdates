@@ -140,8 +140,8 @@ while($DistributionGroupList -eq 1)
     #Find object in non-sync OU and report to user
 
     $FindDistrubutionGroupExchOUNonSync = $null
-    $FindDistributionGroupExchOUNonSync = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "tps.local/Exchange Contacts - Not Synced to Cloud/Distribution Lists" -ErrorAction Ignore
-    $FindDistributionGroupExchOUNonSync = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "tps.local/Exchange Contacts - Not Synced to Cloud" -ErrorAction Ignore
+    $FindDistributionGroupExchOUNonSync = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "domain/OU" -ErrorAction Ignore
+    $FindDistributionGroupExchOUNonSync = Get-DistributionGroup -Identity $DistributionGroup -OrganizationalUnit "domain/OU" -ErrorAction Ignore
     if($FindDistributionGroupExchOUNonSync -ne $null)
     {
         Write-Host -ForegroundColor Yellow "***OU is in Exchange NON-SYNC OU! You will need to activate Exchange PIM and make your changes in Exchange Admin Center as well!***"
