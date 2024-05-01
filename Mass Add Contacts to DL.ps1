@@ -14,8 +14,8 @@ if($DistributionGroupMemberTrue -eq "Y")
     
     Clear-Content "LOCATION OF CSV FILE"
     $CSVEmail = "emailaddress"
-    $CSVEmail | Out-File \\tsclient\z\TNSK_DL_Modifications\TNSKEmails.csv
-    $CSVEmail | Out-File \\tsclient\z\TNSK_DL_Modifications\Non-TNSKEmails.csv
+    $CSVEmail | Out-File "LOCATION OF CSV FILE"
+    $CSVEmail | Out-File "LOCATION OF CSV FILE"
 }
 
 Write-Host "Distribution Group Name: $DistributionGroup"
