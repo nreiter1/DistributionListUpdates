@@ -9,6 +9,13 @@ if($DistributionGroupMemberTrue -eq "Y")
     Import-CSV "C:\temp\Non-TNSKEmails.csv" | foreach {New-MailContact -ExternalEmailAddress $_.name -Name $_.name -ErrorAction Ignore} #Create each contact if contact doesn't exist.
     Import-CSV "C:\temp\Non-TNSKEmails.csv" | foreach {Add-DistributionGroupMember -Identity $DistributionGroup -Member $_.name} #Add External Emails
     Import-CSV "C:\temp\TNSKEmails.csv" | foreach {Add-DistributionGroupMember -Identity $DistributionGroup -Member $_.name} #Add Internal Emails
+
+    #Wipe CSV and rewrite emailaddress at the top of the CSV files
+    
+    Clear-Content "LOCATION OF CSV FILE"
+    $CSVEmail = "emailaddress"
+    $CSVEmail | Out-File \\tsclient\z\TNSK_DL_Modifications\TNSKEmails.csv
+    $CSVEmail | Out-File \\tsclient\z\TNSK_DL_Modifications\Non-TNSKEmails.csv
 }
 
 Write-Host "Distribution Group Name: $DistributionGroup"
