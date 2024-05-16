@@ -1,5 +1,5 @@
 ﻿$DistributionGroup = Read-Host -Prompt "Distribution Group Name"
-Get-DistributionGroupMember -Identity $DistributionGroup | Select -ExpandProperty primarysmtpaddress | Write-Host
+Get-DistributionGroupMember -Identity $DistributionGroup | Select -ExpandProperty primarysmtpaddress | Sort primarysmtpaddress | Write-Host
 
 Write-Host -ForegroundColor Green "You are about to do a mass add of contacts to distribution list. Continue? (Y: Yes, N: No): " -NoNewline
 $DistributionGroupMemberTrue = Read-Host
@@ -19,7 +19,7 @@ if($DistributionGroupMemberTrue -eq "Y")
 }
 
 Write-Host "Distribution Group Name: $DistributionGroup"
-Get-DistributionGroupMember -Identity $DistributionGroup | Select -ExpandProperty primarysmtpaddress | Write-Host #Generates updated distribution list
+Get-DistributionGroupMember -Identity $DistributionGroup | Select -ExpandProperty primarysmtpaddress | Sort primarysmtpaddress | Write-Host #Generates updated distribution list
 
 #Find object in default OU and report to user
 
