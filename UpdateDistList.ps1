@@ -5,6 +5,11 @@
 $DistributionGroupList = 1
 # $Dis Not sure if this variable is still needed.
 
+#Nulls out PowerShell variables to in effort to avoid adding contacts that don't belong on particular distribution lists.
+
+$DistributionGroup = $null
+$DistributionGroupMember = $null
+
 #Ask user which distribution group you want to make changes to and echos list.
 
 $DistributionGroup = Read-Host -Prompt "Distribution Group Name"
@@ -118,6 +123,7 @@ while($DistributionGroupList -eq 1)
                     else{Write-Host -ForegroundColor Yellow "Contact is still a member of at least one distribution list! Leaving.....`n"}
                 }
                 catch{Write-Host -ForegroundColor Yellow "Object is not a contact. Ignoring.....`n"}
+                $DistributionGroupMember = $null #Null out variable to avoid accidentaly readding contact to another DL
             }
             $RemoveAdditionalUsers = Read-Host -Prompt "`nDo we need to remove any additional users/contacts to this distribution group? (Y: Yes, N: No): "
             if($RemoveAdditionalUsers -eq "N")
